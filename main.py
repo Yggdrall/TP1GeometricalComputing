@@ -84,32 +84,21 @@ def PolyConvConc(List):
     print("Verif droite = ", verifdroite)
 
 
+def creepoint(List):
+    taille=len(List)
+    for i in range(0,taille):
+        modulo1 = (i + 1) % taille
+        x1=List[i].x
+        y1=List[i].y
+        x2 = List[i].x
+        y2 = List[i].y
+        x3 = List[modulo1].x
+        y3 = List[modulo1].y
+        canvas.create_oval(x1, y1, x2, y2, fill="black", width=3)
+        canvas.create_line(x1,y1, x3, y3 , fill="black", width=2)
 
 
-
-
-
-
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    A = Point(rnd.randrange(0, 100), rnd.randrange(0, 100))
-    B = Point(rnd.randrange(0, 100), rnd.randrange(0, 100))
-    C = Point(rnd.randrange(0, 100), rnd.randrange(0, 100))
-    D = Point(rnd.randrange(0, 100), rnd.randrange(0, 100))
-    E = Point(rnd.randrange(0, 100), rnd.randrange(0, 100))
-
-    List = [A, B, C, D, E]
-    AB = Segment(A, B)
-    AC = Segment(A, C)
-
-    canva = Tk()
-    canva.title("Polygone")
-    canva.geometry("600x600")
-
-
-
-
-    # Define a function to draw the line between two points
+   # Define a function to draw the line between two points
     def draw_line(event):
         x1 = event.x
         y1 = event.y
@@ -125,6 +114,32 @@ if __name__ == '__main__':
     canvas.place(x=50 , y=50)
     canvas.bind('<Button-1>', draw_line)
     click_num = 0
+
+
+# Press the green button in the gutter to run the script.
+if __name__ == '__main__':
+    A = Point(rnd.randrange(0, 100), rnd.randrange(0, 100))
+    B = Point(rnd.randrange(0, 100), rnd.randrange(0, 100))
+    C = Point(rnd.randrange(0, 100), rnd.randrange(0, 100))
+    D = Point(rnd.randrange(0, 100), rnd.randrange(0, 100))
+    E = Point(rnd.randrange(0, 100), rnd.randrange(0, 100))
+
+    List = [A, B, C, D, E]
+    creepoint(List)
+    AB = Segment(A, B)
+    AC = Segment(A, C)
+
+    canva = Tk()
+    canva.title("Triangle")
+    canva.geometry("600x600")
+    canvas = Canvas(canva, width=500, height=500, background="white")
+    canvas.place(x=50, y=50)
+    creepoint(Tabpoint)
+    click_num = 0
+
+
+
+
 
 
 
